@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: L:\Projects\1C_PDF\Dushelov.PDFViewer1C.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{07FD0470-A0E7-4922-B764-471E576F44D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Dushelov.PDFViewer1C</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="PDFLibNet">
+      <HintPath>lib\PDFLibNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GDIDraw\PenStyles.cs" />
+    <Compile Include="GDIDraw\drawingMode.cs" />
+    <Compile Include="GDIDraw\GDI.cs" />
+    <Compile Include="Gma\UserActivityMonitor\HookManager.cs" />
+    <Compile Include="Gma\UserActivityMonitor\MouseEventExtArgs.cs" />
+    <Compile Include="Gma\UserActivityMonitor\GlobalEventProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Душелов\IPDFViewer1С.cs" />
+    <Compile Include="Душелов\PDFViewer1С.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Душелов\SearchPdfHandler.cs" />
+    <Compile Include="Душелов\SearchArgs.cs" />
+    <Compile Include="Душелов\Properties\Resources.cs" />
+    <Compile Include="PDFViewer\PageViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PDFViewer\ShadowDrawing.cs" />
+    <Compile Include="PDFViewer\frmSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PDFViewer\frmPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PDFViewer\PrintingUtils.cs" />
+    <Compile Include="PDFViewer\RawPrinterHelper.cs" />
+    <Compile Include="PDFViewer\HexEncoding.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="About\AboutBox.resx" />
+    <EmbeddedResource Include="PDFViewer\frmPassword.resx" />
+    <EmbeddedResource Include="PDFViewer\frmSearch.resx" />
+    <EmbeddedResource Include="PDFViewer\PageViewer.resx" />
+    <EmbeddedResource Include="Душелов\PDFViewer1С.resx" />
+    <EmbeddedResource Include="Душелов\Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
