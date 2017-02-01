@@ -1,5 +1,5 @@
 # Dushelov.PDFViewer1C
-Просмотр PDF в 1С
+Просмотр PDF в 1С - http://infostart.ru/public/21144/
 
 Автор - Василий Dushelov Демидов. 
 
