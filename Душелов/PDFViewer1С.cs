@@ -144,6 +144,7 @@ namespace Душелов
         }
 
         public event PDFViewer1С.OnPDFLoadCompeted ПослеЗагрузкиФайла;
+        public event PDFViewer1С.OnPDFUnLoadCompeted ПослеВыгрузкиФайла;
 
         public PDFViewer1С()
         {
@@ -454,10 +455,6 @@ namespace Душелов
 
         private bool LoadFile(string filename)
         {
-
-
-
-
             try
             {
                 this.pageViewControl1.Visible = false;
@@ -493,6 +490,20 @@ namespace Душелов
 
             }
 
+        }
+
+        private void CloseFile()
+        {
+            if (this._pdfDoc == null)
+                return;
+
+            this._pdfDoc.PDFLoadCompeted -= new PDFLoadCompletedHandler(this._pdfDoc_PDFLoadCompeted);
+            this._pdfDoc.PDFLoadBegin -= new PDFLoadBeginHandler(this._pdfDoc_PDFLoadBegin);
+
+            this._pdfDoc.Dispose();
+            this._pdfDoc = null;
+
+            ПослеВыгрузкиФайла?.Invoke();
         }
 
         private void _pdfDoc_PDFLoadBegin()
@@ -798,7 +809,7 @@ namespace Душелов
 
         public void Закрыть()
         {
-
+            this.CloseFile();
         }
 
         public bool ЗагрузитьДокумент(string Файл)
@@ -976,6 +987,7 @@ namespace Душелов
         }
 
         public delegate void OnPDFLoadCompeted();
+        public delegate void OnPDFUnLoadCompeted();
 
         [Guid("E3310268-8E35-417e-9C00-252C5FB24265")]
         [InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
@@ -983,6 +995,8 @@ namespace Душелов
         {
             [DispId(1610743808)]
             void ПослеЗагрузкиФайла();
+            [DispId(1610743809)]
+            void ПослеВыгрузкиФайла();
         }
     }
 }
